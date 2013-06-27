@@ -1,0 +1,9 @@
+<% provide(:title, 'Explore Content') %>
+<h1>Newest Content</h1>
+
+<div style="width: 80%; margin:auto; padding-top: 20px;">
+	<ol class="microposts">
+		<%= render @microposts %>
+	</ol>
+	<%= will_paginate @microposts %>
+</div>

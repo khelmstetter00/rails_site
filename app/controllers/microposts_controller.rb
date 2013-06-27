@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
-	before_filter :signed_in_user, only: [:create, :destroy]
-	before_filter :correct_user, only: :destroy
+	before_filter :signed_in_user, only: [:create, :destroy, :new, :edit, :update]
+	before_filter :correct_user, only: [:destroy, :edit, :update]
 	
 	def create
 		@micropost = current_user.microposts.build(params[:micropost])
@@ -8,8 +8,51 @@ class MicropostsController < ApplicationController
 			flash[:success] = "Micropost created!"
 			redirect_to root_url
 		else
-			@feed_items = []
-			render 'static_pages/home'
+			render 'new'
+		end
+	end
+
+	def new
+		@micropost = Micropost.new
+
+		respond_to do |format|
+      	format.html # new.html.erb
+      	format.json { render json: @micropost }
+    	end
+ 	end
+
+ 	def index
+ 		@microposts = Micropost.paginate(page: params[:page])
+ 	end
+
+	def show
+		@micropost = Micropost.find(params[:id])
+		@user = User.find(@micropost.user_id)
+		@comments = @micropost.comments.paginate(page: params[:page])
+
+		respond_to do |format|
+			format.html # show.html.erb
+			format.json { render json: @micropost }
+		end
+	end
+
+	def edit
+		@micropost = Micropost.find(params[:id])
+	end
+
+	def update
+		@micropost = Micropost.find(params[:id])
+
+		respond_to do |format|
+			if @micropost.update_attributes(params[:micropost])
+				flash[:success] = "Post Updated!"
+				format.html { redirect_to(@micropost) }
+				format.json { head :no_content }
+			else
+				format.html { render :action => "edit" }
+				format.json { render :json => @micropost.errors,
+							  :status => :unprocessable_entity }
+			end
 		end
 	end
 

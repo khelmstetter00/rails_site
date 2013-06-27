@@ -1,9 +1,23 @@
 <% provide(:title, 'Help') %>
 
 <h1>Help</h1>
+<h3>Navigation</h3>
 <p>
-	Get help on the Ruby on Rails Tutorial at the
-	<a href="http://railstutorial.org/help">Rails Tutorial help page</a>.
-	To get help on this sample app, see the
-	<a href="http://railstutorial.org/book">Rails Tutorial Book</a>.
+	<b>Home</b>- The home button redirects to your home page, if signed in, or to the signup page if signed out.<br/><br/>
+
+	<b>Explore</b>- Explore the latest content from all users. This can be accessed whether you are signed in or not.<br/><br/>
+
+	<b>Users</b>- Shows all of the users with links to their profile pages. By linking to a users profile page you can view their content and who they follow/are following them. You can choose whether or not to follow a user on their profile page.<br/><br/>
+
+	<b>Account</b>- You can choose profile to view your profile, settings to change your information, or signout to signout.<br/><br/>
+</p>
+<h3>Using HTML Code</h3>
+<p>
+	HTML code can be used in posts and comments and it is encouraged. Using HTML code you can post images, youtube videos, links to webpages, use different fonts, make tables, and overall better format your content.<br/><br/>
+
+	Youtube videos are easy, as they are done for you. If you go to any youtube video and click 'share' under the video, then click 'embed', you will see code highlighted that you can simply copy paste into a post or comment area.<br/><br/>
+
+	Better support for adding links and images may be added later.
+	<br/><br/>
+	If you have any problems or feedback view the <%= link_to "Contact", contact_path %> page.
 </p>

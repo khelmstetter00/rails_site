@@ -8,26 +8,46 @@
 				<%= render 'shared/stats' %>
 			</section>
 			<section>
-				<%= render 'shared/micropost_form' %>
+				<%= button_to 'New Post', new_micropost_path, class: "btn btn-large btn-primary", :method => :get %>
 			</section>
 		</aside>
 		<div class="span8">
-			<h3>Micropost Feed</h3>
+			<h3>My Content Feed</h3>
 			<%= render 'shared/feed' %>
 		</div>
 	</div>
 <% else %>
 	<div class="center hero-unit">
-		<h1>Welcome to the Sample App</h1>
+		<h1>Welcome to transmIT!</h1>
 
 		<h2>
-			This is the home page for the
-			<a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-			sample application.
+			Transmit your content, ideas, and opinions to the world!
 		</h2>
+		<div style="text-align: left; width: 500px; margin: auto;">
+		<ul>
+			<li>Post what matters to you: videos, images, and full-length articles</li>
+			<li>Follow users whose content interests you and create a following of your own</li>
+			<li>Your customized Content Feed shows the latest content from you and users you follow</li>
+			<li>Comment on others content to leave instant feedback</li>
+			<li>Bring your own style to the table - Create posts that matter to you and your followers.</li>
+			<ul>
+				<li>Movie, game, and book reviews</li>
+				<li>Sports opinions and articles</li>
+				<li>Recipes</li>
+				<li>Political articles and discussion</li>
+				<li>Game walkthroughs and guides</li>
+				<li>A journal or personal blog</li>
+				<li>And anything else you can possibly imagine!</li>
+			</ul>
+			<li>What's your expertise?</li>
+		</ul>
+		</div>
+		<br/>
+		<h3>Get started today and transmit your voice to the world!</h3>
+		<br/>
 
 		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 	</div>
-
+	<small>Powered By:</small><br/>
 	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>

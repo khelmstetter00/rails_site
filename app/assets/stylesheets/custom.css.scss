@@ -69,7 +69,6 @@ p {
 	margin-right: 10px;
 	font-size: 1.7em;
 	color: #fff;
-	text-transform: uppercase;
 	letter-spacing: -1px;
 	padding-top: 9px;
 	font-weight: bold;
@@ -228,6 +227,26 @@ input {
 		padding: 10px 0;
 		border-top: 1px solid #e8e8e8;
 	}
+}
+
+.comments {
+
+	list-style: none;
+	li{
+		margin: 20px 0 0 0;
+		padding: 15px;
+		border: 1px solid #e8e8e8;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		-khtml-border-radius:10px;
+		border-radius:10px;
+	}
+}
+
+.section {
+	border-top: 1px solid #e8e8e8; 
+	padding-top: 20px;
+	margin-top: 20px;
 }
 
 .content {
