@@ -16,10 +16,6 @@ html {
 	overflow-y:scroll;
 }
 
-body {
-	padding-top: 60px;
-}
-
 section {
 	overflow: auto;
 }
@@ -267,4 +263,25 @@ aside {
 		height: 100px;
 		margin-bottom: 5px;
 	}
+}
+
+/* Mobile */
+
+.mcontainer {
+	margin: 5px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.nav-tabs.nav-stacked > li > a {
+  background-color: #282828;
+  border: 1px solid black;
+  color: white;
+  }
+
+.nav-tabs.nav-stacked > li > a:hover {
+  background-color: #585858;
+  border: 1px solid black;
 }

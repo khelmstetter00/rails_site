@@ -1,7 +1,7 @@
 <%= form_for([@micropost, @micropost.comments.build]) do |f| %>
 	
 	<%= render 'shared/error_messages', object: f.object %>
-	
+
 	<%= f.text_area :content, :size => "10x3", placeholder: "Comment here..." %>
 
 	<%= f.submit "Post", class: "btn btn-large btn-primary" %>

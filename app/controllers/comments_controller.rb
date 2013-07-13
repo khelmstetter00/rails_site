@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 		@comment.save
 		respond_to do |format|
 			format.html { redirect_to micropost_path(@micropost) }
+			format.mobile { redirect_to micropost_path(@micropost) }
 			format.js
 		end
 	end

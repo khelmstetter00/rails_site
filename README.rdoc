@@ -1,3 +1,1 @@
-# Ruby on Rails Tutorial: sample application
-
-This is the sample application for [*Ruby on Rails Tutorial: Learn Rails by Example*](http://railstutorial.org/) by [Michael Hartl](http://michaelhartl.com/)
+In order to view the site locally, start Command Prompt using Ruby on Rails and find the directory of the rails_site folder. Then type 'rails server'. The server will launch locally and it can be viewed at http://localhost:3000. The website is also temporarily available to be viewed at http://pacific-stream-5683.herokuapp.com/.

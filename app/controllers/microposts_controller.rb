@@ -17,6 +17,7 @@ class MicropostsController < ApplicationController
 
 		respond_to do |format|
       	format.html # new.html.erb
+      	format.mobile # new.mobile.erb
       	format.json { render json: @micropost }
     	end
  	end
@@ -32,6 +33,7 @@ class MicropostsController < ApplicationController
 
 		respond_to do |format|
 			format.html # show.html.erb
+			format.mobile # show.mobile.erb
 			format.json { render json: @micropost }
 		end
 	end
@@ -47,9 +49,11 @@ class MicropostsController < ApplicationController
 			if @micropost.update_attributes(params[:micropost])
 				flash[:success] = "Post Updated!"
 				format.html { redirect_to(@micropost) }
+				format.mobile { redirect_to(@micropost) }
 				format.json { head :no_content }
 			else
 				format.html { render :action => "edit" }
+				format.mobile { render :action => "edit" }
 				format.json { render :json => @micropost.errors,
 							  :status => :unprocessable_entity }
 			end

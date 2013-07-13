@@ -1,0 +1,54 @@
+<% if signed_in? %>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+			<section>
+				<%= render 'shared/stats' %>
+			</section>
+			<section>
+				<%= button_to 'New Post', new_micropost_path, class: "btn btn-large btn-primary", :method => :get %>
+			</section>
+			<h3>My Content Feed</h3>
+			<%= render 'shared/feed' %>
+		</aside>
+	</div>
+<% else %>
+	<div class="row">
+		<aside class="span4">
+				<h1>Welcome to transmIT!</h1>
+
+				<h2>
+					Transmit your content, ideas, and opinions to the world!
+				</h2>
+				<div style="text-align: left;">
+				<ul>
+					<li>Post what matters to you: videos, images, and full-length articles</li>
+					<li>Follow users whose content interests you and create a following of your own</li>
+					<li>Your customized Content Feed shows the latest content from you and users you follow</li>
+					<li>Comment on others content to leave instant feedback</li>
+					<li>Bring your own style to the table - Create posts that matter to you and your followers.</li>
+					<ul>
+						<li>Movie, game, and book reviews</li>
+						<li>Sports opinions and articles</li>
+						<li>Recipes</li>
+						<li>Political articles and discussion</li>
+						<li>Game walkthroughs and guides</li>
+						<li>A journal or personal blog</li>
+						<li>And anything else you can possibly imagine!</li>
+					</ul>
+					<li>What's your expertise?</li>
+				</ul>
+			</div>
+			<br/>
+			<div style=""
+			<h3>Get started today and transmit your voice to the world!</h3>
+			<br/><br/>
+			<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+			<br/><br/>
+			<small>Powered By:</small><br/>
+			<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+		</aside>
+	</div>
+<% end %>

@@ -1,0 +1,39 @@
+<% provide(:title, @micropost.title) %>
+<div class="row">
+	<aside class="span4">
+		<h3><%= @micropost.title %></h3>
+		<h4>By: <%=link_to @user.name, @micropost.user %></h4>
+		<div style="padding-bottom:10px;">
+		<% if current_user?(@micropost.user) %>
+			<%= link_to "edit", edit_micropost_path(@micropost) %> | 
+			<%= link_to "delete", @micropost, method: :delete, data: { confirm: "Are you sure?" } %>
+		<% end %>
+		<br/>
+		Created: <%= @micropost.created_at.strftime("%B %e, %Y") %> - <%= time_ago_in_words(@micropost.created_at) %> ago.
+		<% if @micropost.created_at != @micropost.updated_at %>
+			<br/>
+			<i>Updated: <%= @micropost.updated_at.strftime("%B %e, %Y") %> - <%= time_ago_in_words(@micropost.updated_at) %> ago.</i>
+		<% end %>
+		</div>
+		<section>
+		<p><%= @micropost.content.gsub(/\n/, '<br/>').html_safe %></p>
+		</section>
+
+		<div class="section">
+		<h4><%= pluralize(@micropost.comments.count, "Comment") %></h4>
+
+		<ol class="comments">
+		<%= render @comments %>
+		</ol>
+		<%= will_paginate @comments, :page_links => false %>
+		</div>
+		<div class="section">
+		<% if signed_in? %>
+			<h4>Add a comment:</h4>
+			<%= render 'comments/form' %>
+		<% else %>
+			<p>Want to comment? <%= link_to "Sign in", signin_path %> or <%= link_to "Signup", signup_path %>
+		<% end %>
+		</div>
+	</aside>
+</div>
